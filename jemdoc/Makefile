@@ -8,7 +8,7 @@ PHDOCS=$(addprefix $(DIR)/, $(HDOCS))
 .PHONY: docs 
 docs: $(PHDOCS)
 
-$(DIR)/%.html: %.jemdoc MENU jemdoc.conf docs/css docs/img
+$(DIR)/%.html: %.jemdoc MENU jemdoc.conf $(DIR)/css $(DIR)/img
 	./jemdoc -o $@ -c jemdoc.conf $<
 
 $(DIR)/css: css
