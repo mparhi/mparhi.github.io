@@ -8,7 +8,7 @@ PHDOCS=$(addprefix $(DIR)/, $(HDOCS))
 .PHONY: docs 
 docs: $(PHDOCS)
 
-$(DIR)/%.html: %.jemdoc MENU jemdoc.conf $(DIR)/css $(DIR)/img
+$(DIR)/%.html: %.jemdoc MENU jemdoc.conf $(DIR)/css $(DIR)/img $(DIR)/files
 	./jemdoc -o $@ -c jemdoc.conf $<
 
 $(DIR)/css: css
@@ -18,6 +18,10 @@ $(DIR)/css: css
 $(DIR)/img: img
 	rm -rf $(DIR)/img
 	cp -r img $(DIR)/img
+
+$(DIR)/files: files
+	rm -rf $(DIR)/files
+	cp -r files $(DIR)/files
 
 .PHONY: clean
 clean:
